@@ -45,7 +45,9 @@ ALL_JIT_ABIS  = \
 	x86_64
 
 ALL_HOST_ABIS = \
-	$(shell uname)
+	$(shell uname) \
+	mxe-Win32 \
+	mxe-Win64
 
 ALL_AOT_ABIS = \
 	armeabi-v7a \
@@ -56,12 +58,6 @@ ALL_AOT_ABIS = \
 	win-arm64 \
 	win-x86 \
 	win-x86_64
-
-ifneq ($(OS_NAME),Linux)
-ALL_HOST_ABIS += \
-	mxe-Win32 \
-	mxe-Win64
-endif
 
 ifneq ($(OS_NAME),Linux)
 MONO_OPTIONS += --arch=64
